@@ -337,10 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
         box.appendChild(p);
       });
 
-    const subject = encodeURIComponent(`[앙두 누리집 문의] ${name}님 (${types.join('/')})`);
-    const body = encodeURIComponent(`성함/기관명: ${name}\n연락처: ${contact}\n문의 유형: ${types.join(', ')}\n\n[문의 내용]\n${message}`);
-    $('#direct-mailto-btn').href = `mailto:loved28@naver.com?subject=${subject}&body=${body}`;
-
     // 구글 시트로 보내기 (주소가 설정된 경우)
     if (FORM_ENDPOINT) {
       const submitBtn = form.querySelector('button[type="submit"]');
