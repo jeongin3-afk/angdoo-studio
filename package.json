@@ -1,0 +1,21 @@
+﻿{
+  "name": "angdoo-studio-official",
+  "version": "1.0.0",
+  "description": "상상을 빚는 따뜻한 기술, 앙두(Angdoo) 공식 홈페이지 랜딩페이지",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000",
+    "build": "echo 'Static build ready for Vercel deployment'"
+  },
+  "keywords": [
+    "앙두",
+    "천안공방",
+    "3D인형제작",
+    "양모펠트",
+    "캐릭터굿즈제작",
+    "기관출강"
+  ],
+  "author": "앙두 (대표: 이지은)"
+}
+

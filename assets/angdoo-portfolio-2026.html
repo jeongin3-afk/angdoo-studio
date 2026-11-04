@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>앙두 작품집 · 출강과 제작 안내서</title>
+  <link rel="icon" type="image/png" href="./angdoo-logo.png" />
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    @font-face { font-family: 'Waguri'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2'); font-display: swap; }
+    @font-face { font-family: 'SchoolSafeDictation'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimBadasseugiTTF-L.woff2') format('woff2'); font-display: swap; }
+    @font-face { font-family: 'GaramYeonkkot'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_04@1.0/Garam.woff') format('woff'); font-display: swap; }
+    :root { --bg: #F8F3EC; --ink: #3D2722; --point: #941704; --tint: #F7E4DC; --line: #EADFC6; --mute: #8A746C; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Pretendard', sans-serif; background: #F0E8DC; color: var(--ink); line-height: 1.7; padding: 36px 20px; word-break: keep-all; }
+    .toolbar { max-width: 840px; margin: 0 auto 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .toolbar p { font-family: 'SchoolSafeDictation', sans-serif; color: var(--point); font-size: 16px; }
+    .btn { border: 1.5px solid var(--point); cursor: pointer; padding: 9px 18px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; font-family: inherit; }
+    .btn--point { background: var(--point); color: var(--bg); }
+    .btn--line { background: transparent; color: var(--point); margin-left: 6px; }
+    .sheet { max-width: 840px; margin: 0 auto; background: var(--bg); padding: 52px 56px; border-radius: 20px; border: 1px solid var(--line); }
+    .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 2px solid var(--point); padding-bottom: 24px; margin-bottom: 28px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 52px; height: auto; }
+    .brand small { font-family: 'SchoolSafeDictation', sans-serif; color: var(--point); font-size: 15px; display: block; }
+    h1 { font-family: 'Waguri', sans-serif; font-weight: normal; font-size: 32px; line-height: 1.25; }
+    .meta { text-align: right; font-size: 13px; color: var(--mute); }
+    .note { font-family: 'GaramYeonkkot', sans-serif; font-size: 21px; line-height: 1.5; background: #FDFAF5; border-left: 3px solid var(--point); padding: 16px 22px; border-radius: 0 12px 12px 0; margin-bottom: 30px; }
+    h2 { font-family: 'Waguri', sans-serif; font-weight: normal; font-size: 22px; color: var(--point); margin: 28px 0 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { background: #FDFAF5; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+    .card span { font-family: 'SchoolSafeDictation', sans-serif; color: var(--point); font-size: 14px; }
+    .card h3 { font-size: 16px; margin: 2px 0 6px; }
+    .card p { font-size: 13.5px; color: #5E4640; }
+    table { width: 100%; border-collapse: collapse; background: #FDFAF5; border: 1px solid var(--line); }
+    th, td { padding: 11px 15px; text-align: left; border-bottom: 1px solid var(--line); font-size: 14px; vertical-align: top; }
+    th { width: 28%; background: #F0E8DC; font-weight: 700; }
+    .foot { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--mute); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+    @media print { body { background: #fff; padding: 0; } .toolbar { display: none; } .sheet { border: none; padding: 16px; } }
+    @media (max-width: 680px) { .sheet { padding: 26px 18px; } .head { flex-direction: column; align-items: flex-start; } .meta { text-align: left; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <p>앙두 작품집 · 출강과 제작 안내서</p>
+    <div>
+      <button class="btn btn--point" onclick="window.print()">PDF로 저장 / 인쇄하기</button>
+      <a class="btn btn--line" href="../index.html">누리집으로 돌아가기</a>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <header class="head">
+      <div class="brand">
+        <img src="./angdoo-logo.png" alt="앙두 로고" />
+        <div>
+          <small>천안 두정동 손바느질 · 3D 입체 설계 공방</small>
+          <h1>상상을 빚는 따뜻한 기술, 앙두</h1>
+        </div>
+      </div>
+      <div class="meta">
+        <strong>대표 디자이너·강사 이지은</strong><br />
+        충청남도 천안시 서북구 두정로 181, 2층<br />
+        0507-1302-0739 · loved28@naver.com
+      </div>
+    </header>
+
+    <p class="note">정교한 3D 디지털 설계로 당신의 상상을 완벽한 실물로 소환하고, 따뜻한 손길로 일상의 위로를 빚어냅니다. 무엇을 만들고 싶든 옆에서 같이 고민하고 응원할게요.</p>
+
+    <h2>하나. 앙두가 하는 일</h2>
+    <div class="grid">
+      <div class="card"><span>제작</span><h3>캐릭터 인형·조형물</h3><p>3D 설계와 오차 없는 입체 패턴으로 작가 소품, 지역 마스코트, 전시 조형물을 소량부터 고품질로 만들어요.</p></div>
+      <div class="card"><span>출강</span><h3>학교·기관·기업 공예 수업</h3><p>9년 차 공방 대표의 현장 경험으로 기관에 맞춘 수업 계획, 개별 재료 꾸러미, 행정 서류까지 한 번에 준비해요.</p></div>
+      <div class="card"><span>수업</span><h3>정답 없는 양모펠트</h3><p>정해진 도안 대신 직접 디자인해 완성하는 연인·가족·반려동물 원데이 클래스를 운영해요.</p></div>
+    </div>
+
+    <h2>둘. 주요 작업과 출강 기록</h2>
+    <table>
+      <tr><th>지역 캐릭터 소품</th><td>천안 대표 캐릭터 호둥이·능소·오룡이 입체 패턴 설계와 천 인형·소품 제작</td></tr>
+      <tr><th>전시 조형물</th><td>공공기관·문화행사 사진 촬영 구역 대형 천 조형물, 창작자 캐릭터 시제품</td></tr>
+      <tr><th>공공기관 출강</th><td>천안시 평생학습관 정규·특강, 초·중·고 진로 체험, 교직원·기업 연수</td></tr>
+      <tr><th>지역 문화 협업</th><td>‘오늘의 호두과자’ 공예 소품 기획, ‘이화차회’ 다도 행사 공예 연출</td></tr>
+    </table>
+
+    <h2>셋. 인형·조형물 제작 과정</h2>
+    <table>
+      <tr><th>1. 상담과 그림 살펴보기</th><td>그림, 손그림, 아이디어를 바탕으로 크기·쓰임·원단 상담</td></tr>
+      <tr><th>2. 3D 설계</th><td>입체 비율을 3D로 만들어 누리집 ‘작업실’에서 시안 확인과 의견 반영</td></tr>
+      <tr><th>3. 입체 패턴 펼치기</th><td>3D 곡면을 오차 없는 바느질 패턴으로 펼쳐 비율이 무너지지 않게 설계</td></tr>
+      <tr><th>4. 견본과 본 제작</th><td>첫 견본 확인 후 소량 소품 또는 전시 조형물을 손으로 정성껏 마감해 납품</td></tr>
+    </table>
+
+    <footer class="foot">
+      <span>상호명: 앙두 (대표: 이지은) · 충청남도 천안시 서북구 두정로 181, 2층</span>
+      <span>0507-1302-0739 · loved28@naver.com · 인스타그램 @angdo0</span>
+    </footer>
+  </main>
+</body>
+</html>
