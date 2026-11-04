@@ -126,16 +126,30 @@ document.addEventListener('DOMContentLoaded', () => {
     go(0);
 
     const modalImg = $('#archive-modal-img');
+    const modalVideo = $('#archive-modal-video');
     items.forEach((it) => {
       it.addEventListener('click', () => {
-        const img = it.querySelector('img');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
         const cap = $('#archive-modal-caption');
-        if (cap) cap.textContent = img.alt;
+        if (cap) cap.textContent = it.dataset.caption || '';
+        if (it.dataset.video) {
+          modalImg.hidden = true;
+          modalVideo.hidden = false;
+          modalVideo.src = it.dataset.video;
+          modalVideo.play().catch(() => {});
+        } else {
+          const img = it.querySelector('img');
+          modalVideo.pause();
+          modalVideo.hidden = true;
+          modalImg.hidden = false;
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+        }
         openModal('archive-modal');
       });
     });
+    // 창을 닫으면 영상 멈추기
+    new MutationObserver(() => { if ($('#archive-modal').hidden) modalVideo.pause(); })
+      .observe($('#archive-modal'), { attributes: true, attributeFilter: ['hidden'] });
   }
 
   /* 5. 작업실 (비밀번호 · 시안 보기 · 댓글) */
