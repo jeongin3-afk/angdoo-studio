@@ -4,7 +4,7 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 구글 시트 문의 접수 주소 (Apps Script 웹 앱 URL). 비워두면 접수 완료 창만 떠요.
-  const FORM_ENDPOINT = '';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzqicnirfNJATwhyKXEQMVj9UQBh7p6kzcwXMV5RvA75m0Mu57vgzjf0ldkUFfbhIxZ/exec';
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
 
