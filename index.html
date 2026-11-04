@@ -76,7 +76,6 @@
             <a href="#workroom" class="gnb__link">작업실</a>
             <ul class="gnb__sub">
               <li><a href="#archive">작업기록</a></li>
-              <li><a href="#order">내 주문 확인</a></li>
             </ul>
           </li>
           <li class="gnb__item">
@@ -87,13 +86,7 @@
             </ul>
           </li>
         </ul>
-        <a href="#order" class="order-btn order-btn--mobile">내 주문 확인</a>
       </nav>
-
-      <a href="#order" class="order-btn">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-        내 주문 확인
-      </a>
 
       <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="gnb" aria-label="메뉴 열기">
         <span></span><span></span><span></span>
@@ -448,130 +441,6 @@
           </div>
         </div>
 
-        <!-- 내 주문 확인 -->
-        <div class="order" id="order">
-          <div class="order__head" data-reveal>
-            <h3 class="sub-title">내 주문 확인</h3>
-            <p>현재 앙두와 인형·조형물 제작을 진행 중인 고객 전용 공간입니다. 비밀번호를 통해 3D 시안을 확인하고 댓글로 수정 사항을 소통할 수 있어요.</p>
-          </div>
-        <div class="workroom" data-reveal>
-          <aside class="workroom-list" aria-label="진행 중인 주문 목록">
-            <div class="workroom-list__head">
-              <strong>진행 중인 주문</strong>
-              <span>주문마다 비밀번호로 보호돼요</span>
-            </div>
-            <ul class="post-list" role="listbox" aria-label="주문 선택">
-              <li class="post is-selected" role="option" aria-selected="true" tabindex="0"
-                data-client="천안 지역 프로젝트팀" data-title="[2차 3D 시안] 호둥이·능소·오룡이 입체 비율과 패턴 확인" data-pass="0739">
-                <svg class="ico post__lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-                <div>
-                  <p class="post__meta"><span class="post__state">시안 확인 중</span>2026.11.02</p>
-                  <strong class="post__title">[2차 3D 시안] 호둥이·능소·오룡이 입체 비율과 패턴 확인</strong>
-                  <span class="post__client">천안 지역 프로젝트팀 · 댓글 3</span>
-                </div>
-              </li>
-              <li class="post" role="option" aria-selected="false" tabindex="0"
-                data-client="스튜디오 달빛" data-title="[1차 3D 시안] 달토끼 30cm 천 인형 귀 볼륨과 앉은 자세" data-pass="0739">
-                <svg class="ico post__lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-                <div>
-                  <p class="post__meta"><span class="post__state post__state--done">수정 반영 완료</span>2026.10.29</p>
-                  <strong class="post__title">[1차 3D 시안] 달토끼 30cm 천 인형 귀 볼륨과 앉은 자세</strong>
-                  <span class="post__client">스튜디오 달빛 · 댓글 4</span>
-                </div>
-              </li>
-              <li class="post" role="option" aria-selected="false" tabindex="0"
-                data-client="문화재단 전시기획팀" data-title="[최종 패턴 확정] 가을 문화제 120cm 대형 캐릭터 조형물" data-pass="0739">
-                <svg class="ico post__lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
-                <div>
-                  <p class="post__meta"><span class="post__state post__state--sewing">견본 바느질 중</span>2026.10.24</p>
-                  <strong class="post__title">[최종 패턴 확정] 가을 문화제 120cm 대형 캐릭터 조형물</strong>
-                  <span class="post__client">문화재단 전시기획팀 · 댓글 5</span>
-                </div>
-              </li>
-            </ul>
-            <p class="workroom-list__tip"><strong>둘러보시는 분께:</strong> 체험용 비밀번호 <code>0739</code>를 넣으시면 시안 화면과 댓글 소통을 미리 체험해 보실 수 있어요.</p>
-          </aside>
-
-          <div class="workroom-detail">
-            <div class="gate" id="password-gate">
-              <svg class="gate__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2"/></svg>
-              <p class="gate__tag" id="gate-post-client">천안 지역 프로젝트팀 전용 비밀글</p>
-              <h3 class="gate__title" id="gate-post-title">[2차 3D 시안] 호둥이·능소·오룡이 입체 비율과 패턴 확인</h3>
-              <p class="gate__desc">아직 공개되지 않은 소중한 캐릭터를 지키기 위해 비밀번호가 걸려 있어요.<br />안내받으신 비밀번호를 입력해 주세요.</p>
-              <form class="gate__form" id="password-gate-form" novalidate>
-                <label for="workroom-password" class="sr-only">비밀번호 입력</label>
-                <input type="password" id="workroom-password" class="gate__input" placeholder="비밀번호 (체험용 0739)" maxlength="12" autocomplete="off" />
-                <button type="submit" class="btn btn--point">시안 열어보기</button>
-              </form>
-              <p class="gate__error" id="password-error-msg" role="alert" hidden>비밀번호가 맞지 않아요. 체험용 비밀번호는 0739예요.</p>
-              <button type="button" class="gate__demo" id="demo-unlock-btn">체험용 비밀번호로 바로 열어보기</button>
-            </div>
-
-            <div class="desk" id="proofing-workspace" hidden>
-              <div class="desk__top">
-                <div>
-                  <span class="desk__open">열람 중</span>
-                  <h3 class="desk__title" id="workspace-post-title">[2차 3D 시안] 호둥이·능소·오룡이 입체 비율과 패턴 확인</h3>
-                </div>
-                <button type="button" class="desk__lock" id="lock-again-btn">다시 잠그기</button>
-              </div>
-              <div class="viewer">
-                <div class="viewer__tabs" role="tablist" aria-label="시안 보기 방식">
-                  <button type="button" class="viewer__tab is-active" data-view="wireframe">3D 입체 뼈대</button>
-                  <button type="button" class="viewer__tab" data-view="side">옆·뒤 비율</button>
-                  <button type="button" class="viewer__tab" data-view="pattern">바느질 패턴 펼친 그림</button>
-                </div>
-                <div class="viewer__stage" id="cad-stage"></div>
-                <p class="viewer__note" id="blueprint-status-note"></p>
-              </div>
-              <div class="comments">
-                <h4 class="comments__title">수정 사항 이야기 나누기 <span id="comment-count-badge">(3)</span></h4>
-                <ul class="comment-list" id="comment-thread">
-                  <li class="comment comment--studio">
-                    <img src="./assets/angdoo-logo.png" alt="앙두" class="comment__avatar comment__avatar--logo" />
-                    <div>
-                      <p class="comment__meta"><strong>앙두 이지은</strong><span class="comment__tag">2차 시안 올림</span><time>2026.11.02 10:30</time></p>
-                      <p class="comment__body">담당자님 안녕하세요! 지난번 말씀대로 정면에서 볼살이 더 복스럽고 말랑해 보이도록 볼륨을 12% 키워봤어요. 귀 위치도 살짝 바깥으로 옮겼는데, 느낌 어떠신지 편하게 남겨주세요.</p>
-                    </div>
-                  </li>
-                  <li class="comment">
-                    <span class="comment__avatar">고객</span>
-                    <div>
-                      <p class="comment__meta"><strong>천안 지역 프로젝트 담당자</strong><span class="comment__tag">비율 확인</span><time>2026.11.02 13:15</time></p>
-                      <p class="comment__body">3D로 먼저 보니까 감이 확 오네요! 볼살 비율이 저희가 원하던 그대로예요. 혹시 꼬리만 5mm 정도 더 둥글게 고칠 수 있을까요?</p>
-                    </div>
-                  </li>
-                  <li class="comment comment--studio">
-                    <img src="./assets/angdoo-logo.png" alt="앙두" class="comment__avatar comment__avatar--logo" />
-                    <div>
-                      <p class="comment__meta"><strong>앙두 이지은</strong><span class="comment__tag">패턴 반영</span><time>2026.11.02 14:05</time></p>
-                      <p class="comment__body">그럼요! 꼬리 곡선을 5mm 더 둥글게 패턴에 바로 반영해 둘게요. 원단 색에 대한 의견도 있으시면 아래에 편하게 남겨주세요.</p>
-                    </div>
-                  </li>
-                </ul>
-                <form class="comment-form" id="proofing-comment-form">
-                  <div class="comment-form__row">
-                    <label for="comment-author" class="sr-only">작성자</label>
-                    <input type="text" id="comment-author" placeholder="성함 또는 담당자명" required />
-                    <label for="comment-tag-select" class="sr-only">의견 구분</label>
-                    <select id="comment-tag-select">
-                      <option value="비율 수정 요청">비율 수정 요청</option>
-                      <option value="원단·색 변경 문의">원단·색 변경 문의</option>
-                      <option value="세부·자수 위치 조율">세부·자수 위치 조율</option>
-                      <option value="시안 최종 확정">시안 최종 확정</option>
-                    </select>
-                  </div>
-                  <div class="comment-form__row comment-form__row--wide">
-                    <label for="comment-body" class="sr-only">댓글 내용</label>
-                    <textarea id="comment-body" rows="2" placeholder="예: 귀 끝을 조금만 더 둥글게 해주세요 / 이대로 견본 진행 부탁드려요" required></textarea>
-                    <button type="submit" class="btn btn--point">댓글 남기기</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
       </div>
     </section>
 
@@ -725,7 +594,6 @@
         <p>© 2026 앙두. 천안에서 따뜻하게 빚었습니다.</p>
         <nav class="site-footer__links" aria-label="꼬리말 메뉴">
           <a href="#contact">제휴 문의</a>
-          <a href="#order">내 주문 확인</a>
         </nav>
       </div>
     </div>

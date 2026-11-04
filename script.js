@@ -3,6 +3,8 @@
  * 외부 의존성 없는 순수 자바스크립트
  */
 document.addEventListener('DOMContentLoaded', () => {
+  // 구글 시트 문의 접수 주소 (Apps Script 웹 앱 URL). 비워두면 접수 완료 창만 떠요.
+  const FORM_ENDPOINT = '';
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
 
@@ -325,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const feedback = $('#form-feedback-msg');
   const warn = (msg) => { feedback.textContent = msg; feedback.hidden = false; };
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     feedback.hidden = true;
 
@@ -352,6 +354,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const subject = encodeURIComponent(`[앙두 누리집 문의] ${name}님 (${types.join('/')})`);
     const body = encodeURIComponent(`성함/기관명: ${name}\n연락처: ${contact}\n문의 유형: ${types.join(', ')}\n\n[문의 내용]\n${message}`);
     $('#direct-mailto-btn').href = `mailto:loved28@naver.com?subject=${subject}&body=${body}`;
+
+    // 구글 시트로 보내기 (주소가 설정된 경우)
+    if (FORM_ENDPOINT) {
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '보내는 중…';
+      try {
+        await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new URLSearchParams({ name, contact, types: types.join(', '), message }),
+        });
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '문의 남기기';
+        return warn('전송에 실패했어요. 잠시 후 다시 시도하시거나 문자로 연락 주세요.');
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = '문의 남기기';
+    }
 
     openModal('contact-success-modal');
     form.reset();
