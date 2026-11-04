@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     toTop?.classList.toggle('is-visible', y > 600);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+  // 로고 · 위로 버튼: 첫 화면 맨 위로
+  $$('a[href="#hero"]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', location.pathname); }));
   onScroll();
 
   const desktop = window.matchMedia('(min-width: 961px)');
