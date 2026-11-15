@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function open(item) {
     current = item;
     document.getElementById('model-modal-title').textContent = item.title;
-    document.getElementById('model-modal-label').textContent = item.visibility === 'private' ? '비공개 시안' : '3D 시안';
+    document.getElementById('model-modal-label').textContent = '시안 확인하기';
     viewer.hidden = true;
     viewer.removeAttribute('src');
     pwMsg.textContent = '';
