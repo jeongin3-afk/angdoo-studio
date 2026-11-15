@@ -363,3 +363,78 @@ document.addEventListener('DOMContentLoaded', () => {
     form.reset();
   });
 });
+
+/* 3D 시안 갤러리: 목록 불러오기 · 비밀번호로 열기 */
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('models-grid');
+  if (!grid) return;
+  const modal = document.getElementById('model-modal');
+  const viewer = document.getElementById('model-viewer');
+  const lockForm = document.getElementById('model-lock-form');
+  const pwInput = document.getElementById('model-pw');
+  const pwMsg = document.getElementById('model-pw-msg');
+  let current = null;
+
+  const cubeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12M3 7l9 5 9-5"/></svg>';
+  const lockIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+
+  const show = (src) => {
+    lockForm.hidden = true;
+    viewer.hidden = false;
+    viewer.src = src;
+  };
+
+  function open(item) {
+    current = item;
+    document.getElementById('model-modal-title').textContent = item.title;
+    document.getElementById('model-modal-label').textContent = item.visibility === 'private' ? '비공개 시안' : '3D 시안';
+    viewer.hidden = true;
+    viewer.removeAttribute('src');
+    pwMsg.textContent = '';
+    pwInput.value = '';
+    const saved = sessionStorage.getItem('angdoo-model-' + item.id);
+    if (item.visibility === 'public') show(`/api/file?id=${encodeURIComponent(item.id)}`);
+    else if (saved) show(`/api/file?id=${encodeURIComponent(item.id)}&t=${encodeURIComponent(saved)}`);
+    else { lockForm.hidden = false; setTimeout(() => pwInput.focus(), 50); }
+    modal.hidden = false;
+  }
+
+  lockForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    pwMsg.textContent = '';
+    const res = await fetch('/api/unlock', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ id: current.id, password: pwInput.value }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!data.ok) { pwMsg.textContent = data.message || '열 수 없어요.'; return; }
+    sessionStorage.setItem('angdoo-model-' + current.id, data.token);
+    show(`/api/file?id=${encodeURIComponent(current.id)}&t=${encodeURIComponent(data.token)}`);
+  });
+
+  new MutationObserver(() => { if (modal.hidden) viewer.removeAttribute('src'); })
+    .observe(modal, { attributes: true, attributeFilter: ['hidden'] });
+
+  fetch('/api/models')
+    .then((r) => (r.ok ? r.json() : { items: [] }))
+    .catch(() => ({ items: [] }))
+    .then(({ items = [] }) => {
+      grid.innerHTML = '';
+      if (!items.length) {
+        grid.innerHTML = '<p class="models__empty">지금은 올라와 있는 시안이 없어요.</p>';
+        return;
+      }
+      items.forEach((it) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'model-card' + (it.visibility === 'private' ? ' model-card--private' : '');
+        btn.innerHTML = `<span class="model-card__icon">${it.visibility === 'private' ? lockIcon : cubeIcon}</span>
+          <span class="model-card__tag">${it.visibility === 'private' ? '비공개' : '공개'}</span>
+          <strong class="model-card__title"></strong>
+          <span class="model-card__go">${it.visibility === 'private' ? '비밀번호로 열기' : '3D로 보기'} →</span>`;
+        btn.querySelector('.model-card__title').textContent = it.title;
+        btn.addEventListener('click', () => open(it));
+        grid.appendChild(btn);
+      });
+    });
+});

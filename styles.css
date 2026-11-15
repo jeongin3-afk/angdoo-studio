@@ -733,3 +733,30 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .visit__grid { grid-template-columns: 1fr; grid-template-areas: "insta" "book" "store" "blog" "addr"; }
   .vcard--insta { min-height: 0; }
 }
+
+/* ===== 작업실 > 3D 시안 ===== */
+.models { margin-top: 100px; }
+.models__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
+.models__head p { max-width: 560px; font-size: 15.5px; color: var(--ink-soft); }
+.models__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.models__empty { grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--ink-mute); background: var(--bg-card); border: 1px dashed var(--line); border-radius: var(--radius); }
+.model-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left; cursor: pointer;
+  padding: 24px 22px; min-height: 200px; border-radius: var(--radius);
+  background: var(--green); color: var(--bg); border: 0;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.model-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.model-card--private { background: var(--bg-card); color: var(--ink); border: 1px solid var(--line); }
+.model-card__icon svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.model-card--private .model-card__icon { color: var(--point); }
+.model-card__tag { font-family: var(--font-label); font-size: 14px; opacity: 0.85; margin-top: 6px; }
+.model-card__title { font-size: 17px; line-height: 1.4; }
+.model-card__go { margin-top: auto; font-size: 14px; font-weight: 700; }
+.model-box { max-width: 860px; }
+.model-box model-viewer { width: 100%; height: min(62vh, 560px); background: var(--bg-card); border-radius: var(--radius); --poster-color: transparent; }
+.model-lock { text-align: center; padding: 30px 10px; }
+.model-lock p { margin-bottom: 16px; color: var(--ink-soft); }
+@media (max-width: 960px) { .models__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .models__grid { grid-template-columns: 1fr; } .model-card { min-height: 150px; } }
+model-viewer[hidden] { display: none !important; }

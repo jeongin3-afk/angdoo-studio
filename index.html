@@ -80,6 +80,7 @@
             <a href="#workroom" class="gnb__link">작업실</a>
             <ul class="gnb__sub">
               <li><a href="#archive">작업기록</a></li>
+              <li><a href="#models">3D 시안</a></li>
             </ul>
           </li>
           <li class="gnb__item">
@@ -444,6 +445,16 @@
           </div>
         </div>
 
+        <!-- 3D 시안 -->
+        <div class="models" id="models" data-reveal>
+          <div class="models__head">
+            <h3 class="sub-title">3D 시안</h3>
+            <p>지금 만들고 있는 아이들의 3D 시안이에요. 마우스나 손가락으로 돌려 보세요. 자물쇠가 있는 시안은 안내받은 비밀번호로 열 수 있어요.</p>
+          </div>
+          <div class="models__grid" id="models-grid">
+            <p class="models__empty">시안을 불러오는 중이에요…</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -602,6 +613,29 @@
     </div>
   </footer>
 
+  <!-- 3D 시안 보기 -->
+  <div class="modal" id="model-modal" role="dialog" aria-modal="true" aria-labelledby="model-modal-title" hidden>
+    <div class="modal__card model-box">
+      <div class="modal__head">
+        <div>
+          <p class="modal__label" id="model-modal-label">3D 시안</p>
+          <h3 id="model-modal-title">시안</h3>
+        </div>
+        <button type="button" class="modal__close" data-close-modal="model-modal" aria-label="닫기"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <form class="model-lock" id="model-lock-form" hidden>
+        <svg class="gate__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2"/></svg>
+        <p>안내받으신 비밀번호를 입력해 주세요.</p>
+        <label for="model-pw" class="sr-only">비밀번호</label>
+        <div class="gate__form">
+          <input type="password" id="model-pw" class="gate__input" placeholder="비밀번호" autocomplete="off" />
+          <button type="submit" class="btn btn--point">열어보기</button>
+        </div>
+        <p class="gate__error" id="model-pw-msg" role="alert"></p>
+      </form>
+      <model-viewer id="model-viewer" camera-controls auto-rotate shadow-intensity="0.6" exposure="1" ar ar-modes="webxr scene-viewer quick-look" hidden></model-viewer>
+    </div>
+  </div>
   <!-- 작업기록 크게 보기 -->
   <div class="modal modal--photo" id="archive-modal" role="dialog" aria-modal="true" aria-label="작업기록 크게 보기" hidden>
     <div class="modal__photo">
@@ -631,6 +665,7 @@
     </div>
   </div>
 
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <script src="./script.js" defer></script>
 </body>
 </html>

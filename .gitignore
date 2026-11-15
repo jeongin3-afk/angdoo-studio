@@ -2,3 +2,5 @@ node_modules/
 .vercel/
 .DS_Store
 Thumbs.db
+# 고객 시안 원본은 저장소에 올리지 않아요 (관리자 화면으로 업로드)
+assets/*.glb
