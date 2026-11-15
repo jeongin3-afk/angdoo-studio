@@ -760,3 +760,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 960px) { .models__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .models__grid { grid-template-columns: 1fr; } .model-card { min-height: 150px; } }
 model-viewer[hidden] { display: none !important; }
+
+/* 떠 있는 바로가기: 시안확인 (강조) */
+.quick__btn--proof { background: var(--green); color: var(--bg); border-color: var(--green); }
+.quick__btn--proof:hover { background: var(--green-dark); color: var(--bg); }
